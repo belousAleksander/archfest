@@ -1,0 +1,8 @@
+# Translatable Configuration
+stof_doctrine_extensions:
+    default_locale: %locale%
+    translation_fallback: true
+    orm:
+        default:
+            translatable: true # not needed: listeners are not enabled by default
+            sortable: true

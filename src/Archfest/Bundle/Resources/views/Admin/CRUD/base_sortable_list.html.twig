@@ -1,0 +1,37 @@
+{% extends 'SonataAdminBundle:CRUD:base_list.html.twig' %}
+
+{% block javascripts %}
+	{{ parent() }}
+	<script type="text/javascript" src="{{ asset('bundles/archfest/js/admin/directives/sortable.js') }}"></script>
+{% endblock %}
+
+{% block table_body %}
+	<tbody disabled="{[sortingEnabled]}" sortable action='{{ admin.generateUrl('changePosition') }}'>
+	{% for object in admin.datagrid.results %}
+		<tr data-object-id="{{ object.id }}">
+			{% include admin.getTemplate('inner_list_row') %}
+		</tr>
+	{% endfor %}
+	</tbody>
+
+{% endblock table_body %}
+
+{% block list_table %}
+	<div class="row">
+
+		<div class="col-xs-12 form-horizontal">
+			<div class="pull-right">
+				<label class="control-label col-sm-7" for="sortable">
+					<strong>
+						{{ 'Sortable' | trans({}, 'Admin') }}:
+					</strong>
+				</label>
+				<label>
+					<input id="sortable" ng-model="sortingEnabled" class="ace ace-switch ace-switch-4 btn-flat" type="checkbox">
+					<span class="lbl"></span>
+				</label>
+			</div>
+		</div>
+	</div>
+	{{ parent() }}
+{% endblock list_table %}

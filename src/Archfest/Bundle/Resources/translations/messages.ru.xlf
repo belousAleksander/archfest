@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="ru" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="1">
+                <source>Enabled</source>
+                <target>Активен</target>
+            </trans-unit>
+
+            <trans-unit id="2">
+                <source>Year</source>
+                <target>Год</target>
+            </trans-unit>
+
+            <trans-unit id="3">
+                <source>Type</source>
+                <target>Тип</target>
+            </trans-unit>
+
+            <trans-unit id="4">
+                <source>Enabled Description</source>
+                <target>Вывод полного описания</target>
+            </trans-unit>
+
+            <trans-unit id="5">
+                <source>Top</source>
+                <target>Определить как Top</target>
+            </trans-unit>
+
+            <trans-unit id="6">
+                <source>title</source>
+                <target>Название страницы в теге title</target>
+            </trans-unit>
+
+            <trans-unit id="7">
+                <source>mDescription</source>
+                <target>Краткое описание (SEO):</target>
+            </trans-unit>
+
+            <trans-unit id="8">
+                <source>mKeywords</source>
+                <target>Ключевые слова (SEO):</target>
+            </trans-unit>
+
+            <trans-unit id="9">
+                <source>name</source>
+                <target>Имя:</target>
+            </trans-unit>
+
+            <trans-unit id="10">
+                <source>briefInformation</source>
+                <target>Краткое описание:</target>
+            </trans-unit>
+
+            <trans-unit id="11">
+                <source>description</source>
+                <target>Подробное описание:</target>
+            </trans-unit>
+
+            <trans-unit id="12">
+                <source>Img</source>
+                <target>Логотип</target>
+            </trans-unit>
+
+            <trans-unit id="13">
+                <source>content</source>
+                <target>Текст страницы</target>
+            </trans-unit>
+
+            <trans-unit id="14">
+                <source>Status</source>
+                <target>Активен</target>
+            </trans-unit>
+
+            <trans-unit id="15">
+                <source>Translations</source>
+                <target>Переводы</target>
+            </trans-unit>
+
+            <trans-unit id="16">
+                <source>Town</source>
+                <target>Город</target>
+            </trans-unit>
+
+            <trans-unit id="17">
+                <source>town</source>
+                <target>Город</target>
+            </trans-unit>
+
+            <trans-unit id="18">
+                <source>address</source>
+                <target>Адрес:</target>
+            </trans-unit>
+
+            <trans-unit id="19">
+                <source>Action</source>
+                <target>Действие</target>
+            </trans-unit>
+
+            <trans-unit id="20">
+                <source>Flash Enabled</source>
+                <target>Показывать Flash</target>
+            </trans-unit>
+
+            <trans-unit id="21">
+                <source>Img Enabled</source>
+                <target>Показывать Img</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

@@ -1,0 +1,38 @@
+.page-logo {
+    background: url("../../images/header_postroiki.jpg");
+}
+div.postroiki_border {
+    height: 100%;
+    margin: 15px;
+    width: 283px;
+    position: inherit;
+    float: left;
+    z-index: 1;
+}
+
+div.postroiki_border table {
+    width: 1008px;
+}
+
+div.postroiki_border table tr td {
+    vertical-align: top;
+}
+
+div.postroiki_border table tr td div h4 {
+    font-size: 18px;
+    font-family: Arial;
+    margin: 0 0 15px 0;
+}
+
+.construction-description {
+    padding: 5px 10px 5px 10px;
+}
+
+div.postroiki_border table tr td div p {
+    margin: 0;
+}
+
+div.postroiki_border table tr td div {
+    margin: 10px 16px 15px 0px;
+    background: #FFFFFF;
+}

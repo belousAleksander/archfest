@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="1">
+                <source>about us</source>
+                <target>про нас</target>
+            </trans-unit>
+
+            <trans-unit id="2">
+                <source>catalog</source>
+                <target>проекти</target>
+            </trans-unit>
+
+            <trans-unit id="3">
+                <source>built</source>
+                <target>споруди</target>
+            </trans-unit>
+            <trans-unit id="4">
+                <source>contacts</source>
+                <target>контакти</target>
+            </trans-unit>
+
+             <trans-unit id="8">
+                <source>logo</source>
+                <target>bundles/archfest/images/fest_ukr.png</target>
+            </trans-unit>
+
+            <trans-unit id="9">
+                <source>logo_alt</source>
+                <target>Архітектурна майстерня ФЕСТ</target>
+            </trans-unit>
+            <trans-unit id="10">
+                <source>PAGE_NAME_CONSTRUCTION</source>
+                <target>bundles/archfest/images/postroiki_ukr.png</target>
+            </trans-unit>
+
+            <trans-unit id="11">
+                <source>PAGE_NAME_CATALOG</source>
+                <target>bundles/archfest/images/projects_ukr.png</target>
+            </trans-unit>
+
+            <trans-unit id="12">
+                <source>PAGE_NAME_ABOUT_US</source>
+                <target>bundles/archfest/images/o_nas_ukr.png</target>
+            </trans-unit>
+
+            <trans-unit id="13">
+                <source>PAGE_NAME_CONTACTS</source>
+                <target>bundles/archfest/images/kontaktu_ukr.png</target>
+            </trans-unit>
+
+
+
+            <trans-unit id="14">
+                <source>SEND</source>
+                <target>Відправити</target>
+            </trans-unit>
+
+            <trans-unit id="15">
+                <source>FILE</source>
+                <target>Файл</target>
+            </trans-unit>
+
+
+            <trans-unit id="16">
+                <source>LETTER</source>
+                <target>Лист</target>
+            </trans-unit>
+
+            <trans-unit id="17">
+                <source>FULL_NAME</source>
+                <target>Повне ім'я</target>
+            </trans-unit>
+
+            <trans-unit id="18">
+                <source>WRITE_LETTER</source>
+                <target>НАПИСАТИ ЛИСТ</target>
+            </trans-unit>
+
+            <trans-unit id="Total area of ​​the design">
+                <source>Total area of ​​the design</source>
+                <target>Загальна площа проектування</target>
+            </trans-unit>
+
+            <trans-unit id="more">
+                <source>more</source>
+                <target>докладніше</target>
+            </trans-unit>
+
+
+        </body>
+    </file>
+</xliff>

@@ -1,0 +1,31 @@
+archfest_homepage:
+    pattern:  /
+    defaults: { _controller: ArchfestBundle:Default:index}
+
+archfest_about_us:
+    pattern:  aboutUs/
+    defaults: { _controller: ArchfestBundle:Default:aboutUs}
+
+archfest_construction:
+    pattern:  construction/
+    defaults: { _controller: ArchfestBundle:Default:construction}
+
+archfest_catalog:
+    pattern:  projects/
+    defaults: { _controller: ArchfestBundle:Default:projects}
+
+archfest_contacts:
+    pattern:  contacts/
+    defaults: { _controller: ArchfestBundle:Default:contacts}
+
+archfest_project:
+    pattern:  project/{id}
+    defaults: { _controller: ArchfestBundle:Default:projectView}
+
+archfest_biography:
+    pattern:  biography/{id}
+    defaults: { _controller: ArchfestBundle:Default:biography}
+
+archfest_send_letter:
+    pattern:  sendLetter
+    defaults: { _controller: ArchfestBundle:Default:sendLetter}

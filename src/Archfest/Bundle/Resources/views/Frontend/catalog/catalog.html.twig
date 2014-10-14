@@ -1,0 +1,50 @@
+{% extends "ArchfestBundle:Frontend:base.html.twig" %}
+{% block stylesheets %}
+	{{ parent() }}
+	<link rel="stylesheet" href="{{ asset('bundles/archfest/css/frontend/catalog.css') }}"/>
+{% endblock %}
+{% block javascripts %}
+	{{ parent ()}}
+	<script type="text/javascript" src="{{ asset('bundles/archfest/js/frontend/directives/scrollProjects.js') }}"></script>
+
+{% endblock %}
+
+{% block bodyContent %}
+	<div id="page_logo" class="page-logo">
+		<img id="page_name" src="{{ asset('PAGE_NAME_CATALOG'|trans({}, 'base')) }}"/>
+	</div>
+	<div class="content-body">
+	{% for type in projectsTypes %}
+		{% if type.status%}
+			<div class="projects-body">
+				<div class="type-of-catalog">
+						<strong>{{ type.name(app.request.get('_locale')) }}</strong>
+				</div>
+				<div class="projects"  scroll-projects>
+					<div class="custom-scroll scroll-projects container">
+						{% spaceless %}
+							<ul>
+								{% for project in type.projects %}
+									{% if project.enabled%}
+										{% for img in project.img %}
+											{% if img.main%}
+												<li><a href="{{ path('archfest_project', {'_locale': app.request.get('_locale'), 'id': project.id }) }}"><img src="{{ asset(img.smallImgSrc) }}" alt="{{ img.alt }}"></a></li>
+											{% endif %}
+										{% endfor %}
+									{% endif %}
+								{% endfor %}
+							</ul>
+						{% endspaceless %}
+					</div>
+					<div class="scroll"><div class="dragger"></div></div>
+				</div>
+			</div>
+		{% endif %}
+	{% endfor %}
+	</div>
+	<div class="content-body">
+		<div id="content">
+			{{ page.content | raw}}
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+#gallery {
+    margin: 1px 0 0 0;
+}
+ .ad-gallery { border:0px;}
+.ad-gallery, .ad-gallery * { margin-top:-1px; padding: 0;}
+
+.ad-gallery .ad-image-wrapper .ad-next {position: absolute;right: 0;top: 0;width: 25%; height: 100%;cursor: pointer;display: block; z-index: 4;}
+.ad-gallery .ad-image-wrapper .ad-prev {position: absolute;left: 0;top: 0;width: 25%; height: 100%;cursor: pointer;display: block; z-index: 4;}
+
+.ad-gallery .ad-nav {width: 99,5%;position: relative;}
+.ad-gallery .ad-forward, .ad-gallery .ad-back {position: absolute; top: 0;height: 100%;z-index: 4;}
+/* IE 6 doesn't like height: 100% */
+
+    .ad-gallery .ad-back {cursor: pointer; width: 50px; left:2px; display: block;background: url(../../images/ad_scroll_back.png) 0px 60px no-repeat; z-index: 4;}
+.ad-gallery .ad-forward {cursor: pointer;display:  block; right: 0px; top:0px;
+	width: 50px;background: url(../../images/ad_scroll_forward.png) 0px 60px no-repeat; z-index: 4;}
+.ad-gallery .ad-nav .ad-thumbs {overflow: hidden;width: 100%;}
+.ad-gallery .ad-thumbs ul {width: 838px;list-style: none; }
+.ad-gallery .ad-thumbs li {float: left;padding-right: 0px;}
+.ad-gallery .ad-thumbs li a {display: block;}
+.ad-gallery .ad-thumbs li a img { margin:1px; border:0px;display: block;}
+.ad-gallery .ad-thumbs li a.ad-active img {border: 0px solid #616161;}
+ 

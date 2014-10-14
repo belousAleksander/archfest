@@ -1,0 +1,38 @@
+{% extends "ArchfestBundle:Frontend:base.html.twig" %}
+{% block stylesheets %}
+	{{ parent() }}
+	<link rel="stylesheet" href="{{ asset('bundles/archfest/css/frontend/construction.css') }}"/>
+{% endblock %}
+{% block bodyContent %}
+	<div id="page_logo" class="page-logo">
+		<div id="page_name"><img src="{{ asset('PAGE_NAME_CONSTRUCTION'|trans({}, 'base')) }}"/></div>
+	</div>
+	<div class="content-body">
+		<div class="shtrihovka"></div>
+		<div class="postroiki_border">
+			<table>
+				{% for construction in constructions %}
+					{% if construction.enabled %}
+						<tr>
+							<td>
+								<div class="construction-description">
+									<h4>
+										<strong>{{ construction.year }}</strong>
+									</h4>
+
+									{{ construction.description(app.request.get('_locale')) | raw}}</div>
+							</td>
+							<td width="705">
+								<div style="margin: 10px">
+									{% for img in construction.img %}
+										<img src="{{ asset(img.src) }}" width="685" alt="{{ img.alt(app.request.get('_locale')) }}">
+									{% endfor %}
+								</div>
+							</td>
+						</tr>
+					{% endif %}
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+{% endblock %}

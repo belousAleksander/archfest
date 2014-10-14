@@ -1,0 +1,33 @@
+# Bootstrap
+app/bootstrap*
+
+# Symfony directories
+vendor/*
+*/logs/*
+*/cache/*
+web/uploads/*
+web/bundles/*
+web/css/*
+web/js/*
+web/hotels/images/*.jpg
+web/uploads/
+composer.phar
+composer.lock
+
+# Configuration files
+app/config/parameters.yml
+app/DoctrineMigrations/
+
+nbproject/
+.idea/
+.bundle
+*.swp
+*~
+.project
+.DS_Store
+*.iml
+.svn
+
+.rsync_cache
+console
+atlassian-ide-plugin.xml

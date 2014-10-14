@@ -1,0 +1,21 @@
+#footer{
+    height: 170px;
+    margin-left: -1px;
+}
+
+#footer_links ul {
+    padding: 0 0 0 20px;
+    font-size: 18px;
+    color: #999999;
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+#content ul {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+#footer_links ul li {
+    margin: 15px 0 15px 0;
+}
+
+

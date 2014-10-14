@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html" xml:lang="{{ app.request.get('_locale') }}" lang="{{ app.request.get('_locale') }}">
+<head>
+    <title>{% block title %}{{ page.title }}{% endblock %}</title>
+	<link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
+	<meta name='yandex-verification' content='7ab555e453396fa4' />
+	<meta name="Description" content="{% block description %}{{ page.mDescription }}{% endblock %}">
+	<meta name="Keywords" content="{% block keywords %}{{ page.mKeywords }}{% endblock %}">
+	{% block stylesheets %}
+		<link rel="stylesheet" href="{{ asset('bundles/archfest/css/frontend/base.css') }}"/>
+	{% endblock %}
+</head>
+<body>
+	<div id="header-wrapper">
+		<div id="languages">
+			{% block languages %}
+				<div class="body-layout text-right">
+					<ul class="list-style-none">
+						<li><a href="{{ path(app.request.attributes.get('_route'), {'_locale': 'ru' }) }}">русский</a></li>
+						<li>| <a href="{{ path(app.request.attributes.get('_route'), {'_locale': 'uk' }) }}"> українською </a></li>
+						<li>|<a href="{{ path(app.request.attributes.get('_route'), {'_locale': 'en' }) }}"> english</a></li>
+					</ul>
+				</div>
+			{% endblock %}
+		</div>
+		<div id="header">
+
+
+			<div class="body-layout">
+
+				<a href="{{ path('archfest_homepage', {'_locale': app.request.get('_locale') }) }}">
+					<div id="header_left_block"><img src="{{ asset('logo'|trans({}, 'base')) }}" alt="{{'logo_alt'|trans({}, 'base') -}}"/></div>
+				</a>
+				<div id="header_right_block">
+					<div class="text-right projected-area">
+						<span>{{'Total area of ​​the design'|trans({}, 'base') -}}  -</span> <strong> {{ totalArea }}</strong>
+					</div>
+					{% block navigation %}
+						<ul class="list-style-none">
+							<li><a href="{{ path('archfest_about_us', {'_locale': app.request.get('_locale') }) }}">{{'about us'|trans({}, 'base') -}}</a></li>
+							<li><a href="{{ path('archfest_catalog', {'_locale': app.request.get('_locale') }) }}">{{'catalog'|trans({}, 'base') -}}</a></li>
+							<li><a href="{{ path('archfest_construction', {'_locale': app.request.get('_locale') }) }}">{{'built'|trans({}, 'base') -}}</a></li>
+							<li><a href="{{ path('archfest_contacts', {'_locale': app.request.get('_locale') }) }}">{{'contacts'|trans({}, 'base') -}}</a></li>
+						</ul>
+					{% endblock %}
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="body" class="body-layout body-shadow">
+		{% block bodyContent %}
+			<div id="page_logo" class="page-logo">
+				<img id="page_name" src="{% block pageName %}{% endblock %}"/></div>
+			<div class="content-body">
+				{% block shtrihovka %}<div class="shtrihovka"></div>{% endblock %}
+
+				<div class="content-left-block">{% block contentLeftBlock %}{% endblock %}</div>
+				<div class="content-right-block">{% block contentRightBlock %}{% endblock %}</div>
+				<div class="both"></div>
+			</div>
+		{% endblock %}
+		<div id="links">
+			<div class="background">
+				<!--LiveInternet counter--><script type="text/javascript"><!--
+					document.write("<a href='//www.liveinternet.ru/click' "+
+							"target=_blank><img src='//counter.yadro.ru/hit?t22.6;r"+
+							escape(document.referrer)+((typeof(screen)=="undefined")?"":
+							";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
+									screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
+							";"+Math.random()+
+							"' alt='' title='LiveInternet: показано число просмотров за 24"+
+							" часа, посетителей за 24 часа и за сегодня' "+
+							"border='0' width='88' height='31'><\/a>")
+					//--></script><!--/LiveInternet-->
+				<!-- begin of Top100 code -->
+
+				<script id="top100Counter" type="text/javascript" src="http://counter.rambler.ru/top100.jcn?3048351"></script>
+				<noscript>
+					<a href="http://top100.rambler.ru/navi/3048351/">
+						<img src="http://counter.rambler.ru/top100.cnt?3048351" alt="Rambler's Top100" border="0" />
+					</a>
+
+				</noscript>
+				<!-- end of Top100 code -->
+
+				<!-- Yandex.Metrika informer -->
+				<a href="https://metrika.yandex.ru/stat/?id=26109324&amp;from=informer"
+				   target="_blank" rel="nofollow"><img src="//bs.yandex.ru/informer/26109324/3_1_FFFFFFFF_EFEFEFFF_0_pageviews"
+													   style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" onclick="try{Ya.Metrika.informer({i:this,id:26109324,lang:'ru'});return false}catch(e){}"/></a>
+				<!-- /Yandex.Metrika informer -->
+
+				<!-- Yandex.Metrika counter -->
+				<script type="text/javascript">
+					(function (d, w, c) {
+						(w[c] = w[c] || []).push(function() {
+							try {
+								w.yaCounter26109324 = new Ya.Metrika({id:26109324,
+									webvisor:true,
+									clickmap:true,
+									trackLinks:true,
+									accurateTrackBounce:true});
+							} catch(e) { }
+						});
+
+						var n = d.getElementsByTagName("script")[0],
+								s = d.createElement("script"),
+								f = function () { n.parentNode.insertBefore(s, n); };
+						s.type = "text/javascript";
+						s.async = true;
+						s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+						if (w.opera == "[object Opera]") {
+							d.addEventListener("DOMContentLoaded", f, false);
+						} else { f(); }
+					})(document, window, "yandex_metrika_callbacks");
+				</script>
+				<noscript><div><img src="//mc.yandex.ru/watch/26109324" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+				<!-- /Yandex.Metrika counter -->
+			</div>
+		</div>
+	</div>
+	{% block javascripts %}
+		<script type="text/javascript" src="{{ asset('bundles/archfest/js/jquery/jquery.min.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('bundles/archfest/js/jquery/plugins/jquery.mousewheel.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('bundles/archfest/js/angular.min.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('bundles/archfest/js/angular.config.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('bundles/archfest/js/bootstrap.min.js') }}"></script>
+	{% endblock %}
+</body>
+</html>

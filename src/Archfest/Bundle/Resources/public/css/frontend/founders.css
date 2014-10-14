@@ -1,0 +1,26 @@
+.page-logo {
+    background: url("../../images/header_o_nas.jpg");
+}
+
+div.wrap-photo{
+    padding: 15px;
+    text-align: center;
+}
+
+div.wrap-photo div.photo{
+  display: inline-block;
+}
+
+div.wrap-photo div.photo img{
+    height: 300px;
+    padding: 0 20px;
+}
+div.wrap-content {
+    padding: 0 20px;
+}
+
+div.wrap-content h1{
+    text-align: center;
+    font-family: arial, sans-serif;
+    font-size: 26px;
+}

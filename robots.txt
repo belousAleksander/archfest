@@ -1,0 +1,12 @@
+User-agent: Yandex
+Disallow: /admin
+Host: archfest.com
+
+User-agent: Googlebot
+Disallow: /admin
+
+User-agent: *
+Crawl-delay: 30
+Disallow: /admin
+
+Sitemap: http://archfest.com/sitemap.xml

@@ -1,0 +1,70 @@
+.page-logo {
+    background: url("../../images/header_kontaktu.jpg");
+}
+.inline {
+    float: left;
+}
+
+.width-and-height-block-small-map {
+    width: 352px;
+    height: 315px;
+}
+.write-letter-group {
+    color:#999999;
+
+}
+.write-letter {
+    width: 90%;
+    margin: 0 15px 0 15px;
+    font-family:Arial;
+    font-weight: bold;
+}
+
+div.write-letter div.letter-title {
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 10px;
+    margin-top: 3px;
+}
+.write-letter-group p {
+    width: 90%;
+    margin: 0;
+}
+
+.write-letter-group textarea {
+    height: 66px;
+    width: 90%;
+}
+
+.content-left-block div.address {
+    padding: 15px;
+}
+
+.content-left-block div.address h4 {
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 10px 0 0 0;
+    padding: 4px 5px 3px 5px;
+    background: #FFFFFF;
+}
+
+.small-map {
+    margin: 5px;
+    width:328px;
+    height:300px
+}
+
+.big-map {
+    margin: 5px;
+    width:700px;
+    height:280px
+}
+
+.loader {
+    margin-right: 10px;
+    width: 15px;
+}
+
+.errorLetter {
+    color: #ff0000;
+}

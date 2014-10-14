@@ -1,0 +1,66 @@
+.page-logo {
+    background: url("../../images/header_katalog.jpg");
+}
+
+.type-of-catalog {
+    padding-bottom: 5px;
+    text-align: center;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.projects-body {
+    padding: 17px 0 0 0;
+}
+
+.projects-body:last-child {
+    padding-bottom: 17px;
+}
+
+.projects {
+    width: 986px;
+    background: #efefef;
+    border: 1px solid #CCCCCC;
+    margin: 0 17px 0 17px;
+}
+
+.scroll-projects {
+    overflow:hidden;
+
+
+    height: 109px;
+}
+.scroll-projects ul li img {
+    height: 100px;
+}
+.scroll-projects ul {
+    margin-top: 4px;
+    padding: 0;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.scroll-projects ul li {
+    display: inline-block;
+    margin: 0 2px 0 2px;
+}
+
+.scroll-projects ul li:last-child {
+    margin-right: 4px;
+}
+.scroll-projects ul li:first-child {
+      margin-left: 4px;
+}
+
+.scroll {
+    position: relative;
+    box-shadow: inset 0 2px 5px #cac5c2;
+    height: 14px;
+    border-top: 1px solid #CCCCCC;
+}
+div.scroll div.dragger {
+    margin: 3px 0 3px 0;
+    height: 8px;
+    background: #a33c21;
+    position: absolute;
+}

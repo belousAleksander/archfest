@@ -1,0 +1,53 @@
+{% extends "ArchfestBundle:Frontend:base.html.twig" %}
+{% block stylesheets %}
+	{{ parent() }}
+	<link rel="stylesheet" href="{{ asset('bundles/archfest/css/frontend/index.css') }}"/>
+	<link rel="stylesheet" href="{{ asset('bundles/archfest/css/frontend/jquery/jquery.slider.css') }}"/>
+	<link rel="stylesheet" href="{{ asset('bundles/archfest/css/frontend/gallery.css') }}"/>
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent ()}}
+	<script type="text/javascript" src="{{ asset('bundles/archfest/js/jquery/plugins/jquery.slider.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('bundles/archfest/js/jquery/plugins/jquery.slider.config.js') }}"></script>
+	{#<script type="text/javascript" src="{{ asset('bundles/archfest/js/gallery.js') }}"></script>#}
+	{#<script type="text/javascript" src="{{ asset('bundles/archfest/js/gallery_custom.js') }}"></script>#}
+	<script type="text/javascript" src="{{ asset('bundles/archfest/js/frontend/directives/gallery.js') }}"></script>
+	{#<script type="text/javascript">#}
+		{#jQuery( document ).ready(function() {#}
+			{#jQuery('.ad-gallery').adGallery();#}
+		{#});#}
+	{#</script>#}
+{% endblock %}
+
+{% block bodyContent %}
+	<div id="slider" class="nivoSlider">
+		<img src="{{ asset('bundles/archfest/images/foto_title.jpg') }}" alt="" >
+		<img src="{{ asset('bundles/archfest/images/foto_title2.jpg') }}" alt="" >
+		<img src="{{ asset('bundles/archfest/images/foto_title3.jpg') }}" alt="" >
+		<img src="{{ asset('bundles/archfest/images/foto_title4.jpg') }}" alt="" >
+		<img src="{{ asset('bundles/archfest/images/foto_title5.jpg') }}" alt="" >
+	</div>
+	<div id="content">
+		{{ page.content | raw }}
+	</div>
+	<div id="footer">
+		<div id="gallery" class="ad-gallery gallery">
+			<div class="ad-nav">
+				<div class="ad-thumbs">
+					<ul>
+						{% for project in projects %}
+							{% if project.enabled %}
+								{% for img in project.img %}
+									{% if img.main%}
+										<li><a href="{{ path('archfest_project', {'_locale': app.request.get('_locale'), 'id': project.id }) }}"><img src="{{ asset(img.smallImgSrc) }}" alt="{{ img.alt }}"></a></li>
+									{% endif %}
+								{% endfor %}
+							{% endif %}
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

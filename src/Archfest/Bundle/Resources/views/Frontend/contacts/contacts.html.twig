@@ -1,0 +1,161 @@
+{% extends "ArchfestBundle:Frontend:base.html.twig" %}
+{% block stylesheets %}
+	{{ parent() }}
+	<link rel="stylesheet" href="{{ asset('bundles/archfest/css/frontend/contacts.css') }}"/>
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	<script type="text/javascript" src="{{ asset('bundles/archfest/js/jquery/jquery.form.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('bundles/archfest/js/frontend/Controllers/writeLetterController.js') }}"></script>
+{% endblock %}
+
+{% block shtrihovka %}{% endblock %}
+{% block pageName %}{{ asset('PAGE_NAME_CONTACTS'|trans({}, 'base')) }}{% endblock %}
+{% block contentLeftBlock %}
+	<div class="address">
+		{% for address in addresses %}
+			<div>
+				<h4><strong>{{ address.town(app.request.get('_locale')) | raw}}</strong></h4>
+				<div>
+					{{ address.address(app.request.get('_locale')) | raw}}
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+
+	{% endblock %}
+{% block contentRightBlock %}
+	<div>
+		<!-- Этот блок кода нужно вставить в ту часть страницы, где вы хотите разместить карту  (начало ЧЕРКАССЫ) -->
+		<script src="http://api-maps.yandex.ru/1.1/?key=AAalbE8BAAAAR0cLGAIAQpPtiSGWKTOFtwsf9LJUOuCs2i4AAAAAAAAAAABxagmYvJ93FkPxxPKbSkLnbT0LzQ==&modules=pmap&wizard=constructor" type="text/javascript"></script>
+		<script type="text/javascript">
+		YMaps.jQuery(window).load(function () {
+		var map = new YMaps.Map(YMaps.jQuery("#YMapsID-3610")[0]);
+		map.setCenter(new YMaps.GeoPoint(32.070138,49.440692), 15, YMaps.MapType.MAP);
+		map.addControl(new YMaps.Zoom());
+		map.addControl(new YMaps.ToolBar());
+		YMaps.MapType.PMAP.getName = function () { return "Народная"; };
+		map.addControl(new YMaps.TypeControl([
+		YMaps.MapType.MAP,
+		YMaps.MapType.SATELLITE,
+		YMaps.MapType.HYBRID,
+		YMaps.MapType.PMAP
+		], [0, 1, 2, 3]));
+
+		YMaps.Styles.add("constructor#pmlbmPlacemark", {
+		iconStyle : {
+		href : "http://api-maps.yandex.ru/i/0.3/placemarks/pmlbm.png",
+		size : new YMaps.Point(28,29),
+		offset: new YMaps.Point(-8,-27)
+		}
+		});
+
+		map.addOverlay(createObject("Placemark", new YMaps.GeoPoint(32.069838,49.440748), "constructor#pmlbmPlacemark", "Архитектурная мастерская ФЕСТ"));
+		map.addOverlay(createObject("Placemark", new YMaps.GeoPoint(30.646825,50.394348), "constructor#pmlbmPlacemark", "Архитектурная мастерская ФЕСТ"));
+
+		function createObject (type, point, style, description) {
+		var allowObjects = ["Placemark", "Polyline", "Polygon"],
+		index = YMaps.jQuery.inArray( type, allowObjects),
+		constructor = allowObjects[(index == -1) ? 0 : index];
+		description = description || "";
+
+		var object = new YMaps[constructor](point, {style: style, hasBalloon : !!description});
+		object.description = description;
+
+		return object;
+		}
+		});
+		</script>
+
+		<div id="YMapsID-3610" class="big-map"></div>
+
+		{#<!-- Этот блок кода нужно вставить в ту часть страницы, где вы хотите разместить карту (конец) -->#}
+	</div>
+	<div>
+		<div class="float-left left-block width-and-height-block-small-map">
+
+			<!-- Этот блок кода нужно вставить в ту часть страницы, где вы хотите разместить карту  (начало KIEV) -->
+			<script src="http://api-maps.yandex.ru/1.1/?key=AAalbE8BAAAAR0cLGAIAQpPtiSGWKTOFtwsf9LJUOuCs2i4AAAAAAAAAAABxagmYvJ93FkPxxPKbSkLnbT0LzQ==&modules=pmap&wizard=constructor" type="text/javascript"></script>
+			<script type="text/javascript">
+				YMaps.jQuery(window).load(function () {
+					var map = new YMaps.Map(YMaps.jQuery("#YMapsID-3448")[0]);
+					map.setCenter(new YMaps.GeoPoint(30.644679,50.396241), 15, YMaps.MapType.MAP);
+					map.addControl(new YMaps.Zoom());
+					map.addControl(new YMaps.ToolBar());
+					YMaps.MapType.PMAP.getName = function () { return "Народная"; };
+					map.addControl(new YMaps.TypeControl([
+						YMaps.MapType.MAP,
+						YMaps.MapType.SATELLITE,
+						YMaps.MapType.HYBRID,
+						YMaps.MapType.PMAP
+					], [0, 1, 2, 3]));
+
+					YMaps.Styles.add("constructor#pmlbmPlacemark", {
+						iconStyle : {
+							href : "http://api-maps.yandex.ru/i/0.3/placemarks/pmlbm.png",
+							size : new YMaps.Point(28,29),
+							offset: new YMaps.Point(-8,-27)
+						}
+					});
+
+					map.addOverlay(createObject("Placemark", new YMaps.GeoPoint(32.069838,49.440748), "constructor#pmlbmPlacemark", "Архитектурная мастерская ФЕСТ"));
+					map.addOverlay(createObject("Placemark", new YMaps.GeoPoint(30.646825,50.394348), "constructor#pmlbmPlacemark", "Архитектурная мастерская ФЕСТ"));
+
+					function createObject (type, point, style, description) {
+						var allowObjects = ["Placemark", "Polyline", "Polygon"],
+								index = YMaps.jQuery.inArray( type, allowObjects),
+								constructor = allowObjects[(index == -1) ? 0 : index];
+						description = description || "";
+
+						var object = new YMaps[constructor](point, {style: style, hasBalloon : !!description});
+						object.description = description;
+
+						return object;
+					}
+				});
+			</script>
+
+			<div id="YMapsID-3448" class="small-map"></div>
+
+			<!-- Этот блок кода нужно вставить в ту часть страницы, где вы хотите разместить карту (конец) -->
+
+		</div>
+		<div class="float-right right-block width-and-height-block-small-map">
+			<div ng-controller="writeLetterController">
+				<form action="{{ path('archfest_send_letter') }}" method="post" enctype="multipart/form-data">
+					<div class="write-letter">
+						<div class="letter-title">
+							<strong>{{'WRITE_LETTER'|trans({}, 'base') -}}</strong>
+						</div>
+
+						<div class="write-letter-group">
+							<p>{{'FULL_NAME'|trans({}, 'base') -}}</p>
+							<input name="name" type="text" size="30" maxlength="200" align="right" ng-model="letter.name">
+						</div>
+
+						<div class="write-letter-group">
+							<p>Email</p>
+							<input name="from" type="text" size="30" maxlength="200" ng-model="letter.from">
+						</div>
+
+						<div class="write-letter-group">
+							<p>{{'LETTER'|trans({}, 'base') -}}</p>
+							<textarea name="text" ng-model="letter.text"></textarea>
+						</div>
+
+						<div class="write-letter-group">
+							{{'FILE'|trans({}, 'base') -}}: <input id="letterFile" type="file" name="file">
+						</div>
+
+						<div class="write-letter-group" align="right">
+						<div class="errorLetter">{[letterError]}</div>
+							<img ng-show="letterLoad" class="loader" src="{{ asset('loader.gif') }}"/><input ng-click="sendLetter($event)" type="button" name="submit" value="{{'SEND'|trans({}, 'base') -}}" id="button">
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="both"></div>
+	</div>
+{% endblock %}

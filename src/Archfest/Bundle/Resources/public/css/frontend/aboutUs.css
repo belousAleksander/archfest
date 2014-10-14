@@ -1,0 +1,106 @@
+.page-logo {
+    background: url("../../images/header_o_nas.jpg");
+}
+.content-body{
+    padding-top: 10px;
+}
+
+.content-body p,
+.content-body h2{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    color: black !important;
+    margin: 0px 10px 10px 0px !important;
+}
+
+h2{
+    text-transform: uppercase;
+    line-height: 20px !important;
+}
+
+.Architects h2,
+.about-text h2{
+    text-align: center;
+}
+.founders,
+.chief_Architect,
+.fest
+{
+    display: inline-block;
+    float: left;
+}
+.founders p,
+.chief_Architect p{
+    padding: 10px 0 0 0 ;
+}
+.founders{
+    width: 406px;
+}
+.founders div{
+    width: 203px;
+}
+
+.pointer:hover{
+    cursor: pointer;
+}
+
+.founders div{
+    float: left;
+}
+.chief_Architect{
+    width: 205px;
+}
+
+.fest{
+    padding: 24px 20px 0 20px;
+    width: 373px;
+}
+.about-text{
+    clear: both;
+    padding: 20px 0 0 0 ;
+}
+
+.about-text p{
+    text-align: justify;
+    padding:10px;
+}
+
+.team{
+    clear: both;
+    overflow: hidden;
+}
+
+.team ul{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.team li img{
+    display: inline-block;
+    float:left;
+    height: 171px;
+    width: 128px;
+    margin: 0 auto;
+    padding: 0 auto;
+    text-align: center;
+}
+
+.finally{
+    text-align: center;
+    margin:10px 0 30px 0 ;
+}
+
+#biography {
+    width: 800px;
+    left: 41%
+}
+
+#biography img {
+    float: right;
+    margin: 0 0 15px 15px;
+}
+
+.Architects h2 {
+    font-size: 14px;
+}

@@ -1,0 +1,74 @@
+.left-block-width {
+    width: 200px;
+}
+
+#page_logo {
+    display: table-cell;
+    width: 1024px;
+    vertical-align: bottom;
+    text-align: right;
+    height: 170px;
+}
+.page-logo {
+    background: url("../../images/header_project.jpg");
+}
+
+div.content-left-block {
+    float: left;
+    height: 100%;
+
+}
+div.description {
+    margin: 170px 15px 15px 15px;
+}
+
+div.year {
+    font-family: Aeroport;
+    position: relative;
+    font-size: 20px;
+    margin: 0 0 20px 15px ;
+}
+
+
+.content-right-block {
+    float:right;
+    height: 100%;
+    width: 824px;
+}
+
+div.images {
+    width: 824px;
+    border: 0;
+}
+
+/*div.images img {*/
+    /*width: 100%;*/
+/*}*/
+
+div.content {
+    margin: 15px 15px 0 15px;
+}
+
+div.project-description{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+div.table div.row div.cell-year {
+    vertical-align: bottom;
+}
+
+.padding-bottom-15 {
+    padding-bottom: 15px;
+}
+.flash-greed {
+    height: 600px;
+    width: 994px;
+    position: absolute;
+    opacity: 0.3;
+    background: url("../../images/flash-fon.jpg");
+    background-size: 994px 600px;
+}
+
+#header_right_block{
+    text-align: right;
+}

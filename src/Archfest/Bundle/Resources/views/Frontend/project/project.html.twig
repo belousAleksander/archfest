@@ -1,0 +1,79 @@
+{% extends "ArchfestBundle:Frontend:base.html.twig" %}
+{% macro flash(flash) %}
+	<div class="content">
+		<div class="flash-greed">
+		</div>
+		<div>
+			<object width="100%" height="600px" >
+				<param name="movie" value="{{ asset(flash.src) }}" />
+				<param name="wmode" value="opaque" />
+			</object>
+		</div>
+	</div>
+{% endmacro %}
+{% import _self as flashHelper %}
+{% block stylesheets %}
+	{{ parent() }}
+	<link rel="stylesheet" href="{{ asset('bundles/archfest/css/frontend/jquery/jquery.slider.css') }}"/>
+	<link rel="stylesheet" href="{{ asset('bundles/archfest/css/frontend/project.css') }}"/>
+{% endblock %}
+{% block javascripts %}
+	{{ parent() }}
+	<script type="text/javascript" src="{{ asset('bundles/archfest/js/frontend/plugins.js') }}"></script>
+{% endblock %}
+{% block languages %}
+	<div class="body-layout text-right">
+		<ul class="list-style-none">
+			<li><a href="{{ path(app.request.attributes.get('_route'), {'_locale': 'ru', 'id': page.id }) }}">русский</a></li>
+			<li>| <a href="{{ path(app.request.attributes.get('_route'), {'_locale': 'uk', 'id': page.id }) }}"> українською </a></li>
+			<li>|<a href="{{ path(app.request.attributes.get('_route'), {'_locale': 'en', 'id': page.id }) }}"> english</a></li>
+		</ul>
+	</div>
+{% endblock %}
+
+{% block navigation %}
+	<ul class="list-style-none">
+		<li><a href="{{ path('archfest_catalog', {'_locale': app.request.get('_locale') }) }}">{{'catalog'|trans({}, 'base') -}}</a></li>
+	</ul>
+{% endblock %}
+
+{% block bodyContent %}
+	<div id="page_logo" class="page-logo"></div>
+	<div class="content">
+		{{ page.name(app.request.get('_locale')) | raw}}
+	</div>
+	{% if page.flashEnabled%}
+		{{ flashHelper.flash(page.flash.first) }}
+	{% else %}
+		{% if page.imgEnabled %}
+			<div class="content">
+				<img width="100%" src="{{ asset(mainImg.src) }}" alt="{{ mainImg.alt(app.request.get('_locale')) }}"/>
+			</div>
+		{% endif %}
+	{% endif %}
+
+	<div class="content project-description">
+		{{ page.briefInformation(app.request.get('_locale')) | raw }}
+	</div>
+
+	{% if page.flashEnabled%}
+		{% for flash in page.flash | slice(1) %}
+			{{ flashHelper.flash(flash) }}
+		{% endfor %}
+		{% if page.imgEnabled %}
+			<div class="content">
+				<img width="100%" src="{{ asset(mainImg.src) }}" alt="{{ mainImg.alt(app.request.get('_locale')) }}"/>
+			</div>
+		{% endif %}
+	{% endif %}
+
+	{% if page.imgEnabled %}
+		{% for img in imgWithOutMain %}
+			<div class="content">
+				<img width="100%" src="{{ asset(img.src) }}" alt="{{ img.alt(app.request.get('_locale')) }}"/>
+			</div>
+		{% endfor %}
+	{% endif %}
+	<div class="padding-bottom-15"></div>
+
+{% endblock %}

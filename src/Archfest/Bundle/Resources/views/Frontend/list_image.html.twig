@@ -1,0 +1,9 @@
+{% extends 'SonataAdminBundle:CRUD:base_list_field.html.twig' %}
+
+{% block field%}
+	{% for img in object.img %}
+		{% if img.main %}
+			<img src="{{ asset(img.smallImgSrc) }}" alt="{{ img.alt }}" style="height: 100px"/>
+		{% endif %}
+	{% endfor %}
+{% endblock %}

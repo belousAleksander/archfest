@@ -1,0 +1,260 @@
+@font-face {
+    font-family: Tahoma; /* Гарнитура шрифта */
+    src: url(5102337.ttf); /* Путь к файлу со шрифтом */
+}
+body, html {
+    padding: 0;
+    margin: 0;
+    background:url('../../images/shtrih.jpg');
+}
+
+.body-layout {
+    padding: 0 10px 0 10px;
+    margin: 0 auto 0 auto;
+    width: 1024px;
+}
+.body-shadow {
+    position:relative;
+    width:1024;
+    margin:0 auto 0 auto;
+    background:#fff;
+    -webkit-box-shadow: 0 0 25px rgba(0,0,0, 0.5);
+    -moz-box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+    -moz-border-radius:5px;
+
+}
+#body {
+    margin-bottom: 40px;
+    padding: 23px 0 0 0;
+}
+.body-shadow:before,
+.body-shadow:after {
+    content:"";
+    position:absolute;
+    z-index:-2;
+    bottom:15px;
+    left:10px;
+    width:50%;
+    height:2%;
+    max-width:440px;
+    -webkit-box-shadow: 0 15px 35px rgba(0,0,0, 0.4);
+    -moz-box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    -webkit-transform: rotate(-3deg);
+    -moz-transform: rotate(-3deg);
+    -o-transform: rotate(-3deg);
+    -ms-transform: rotate(-3deg);
+    transform: rotate(-3deg);
+}
+
+.body-shadow:after {
+    right:10px;
+    left:auto;
+    -webkit-transform:rotate(3deg);
+    -moz-transform:rotate(3deg);
+    -ms-transform:rotate(3deg);
+    -o-transform:rotate(3deg);
+    transform:rotate(3deg);
+}
+
+
+
+
+
+#languages{
+    width:100%;
+    left:0px;
+    position: absolute;
+    height:39px;
+    background: #1C1C1C;
+    z-index:10;
+}
+#languages ul {
+    margin: 8px 10px 0 0;
+}
+#languages ul li,
+#languages ul li a:visited,
+#languages ul li a:link {
+    color: #555555;
+    text-decoration: none;
+    font-family: Tahoma;
+}
+#languages ul li a:hover {
+    color: #990000;
+    font-family: Tahoma;
+}
+
+#languages ul li {
+    display: inline-block;
+}
+#header-wrapper {
+    margin:0 auto;
+    width:100%;
+}
+#header{
+    width:100%;
+    left:0;
+    right: 0;
+    top:39px;
+    position: absolute;
+    filter:alpha(opacity=50);
+    -moz-opacity:0.5;
+    background: rgba(0, 0, 0, 0.6) repeat-x;
+    height:136px;
+    z-index:10;
+    padding: 0;
+}
+
+#header_right_block ul {
+    margin: 26px 4px 0 0;
+    display: inline-block;
+}
+#header_right_block ul li {
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+#header_right_block li a {
+    color: #fff;
+    display: block;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    padding-top: 11px;
+    padding-bottom: 11px;
+    padding-right: 13px;
+    padding-left: 13px;
+    background: transparent;
+}
+#header_right_block a:link {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+#header_right_block li a:hover {
+    color:#fff;
+    background: #990000;}
+
+
+#header_left_block {
+    margin: 58px 0 0 12px;
+    width: 338px;
+    height: 78px;
+    float:left;
+    height: 100%;
+}
+
+#header_right_block {
+    float:right;
+}
+.both {
+    clear: both;
+}
+
+.list-style-none {
+    list-style: none;
+}
+
+.wait {
+    cursor: wait !important;
+}
+.text-right {
+    text-align: right;
+}
+
+#page_logo {
+    display: table-cell;
+    width: 1024px;
+    vertical-align: bottom;
+    text-align: right;
+    height: 213px;
+}
+
+.content-body{
+    overflow: hidden;
+    position: relative;
+    background: #ffffff;
+}
+
+.content-left-block {
+    float:left;
+    height: 100%;
+    width: 315px;
+}
+
+
+.content-left-block div {
+    position: relative;
+}
+
+.shtrihovka{
+    position: absolute;
+    height: 100%;
+    width: 315px;
+    background: url("../../images/shtrihovka.gif");
+}
+.content-right-block {
+    float:right;
+    height: 100%;
+    width: 709px;
+}
+
+.margin-15 {
+    margin: 15px;
+}
+
+.padding-5 {
+    padding: 5px;
+}
+
+#page_name {
+    display: inline-block;
+    margin: 0 20px 15px 0;
+}
+
+div.table {
+    display: table;
+}
+
+div.table div.row {
+    display: table-row;
+}
+
+div.table div.row div.cell {
+    display: table-cell;
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.projected-area {
+    font-family: Arial;
+    color: #B41111;
+    font-size: 20px;
+    padding: 20px;
+}
+
+.projected-area span {
+    color: #6d6d6d;
+    font-size: 16px;
+}
+#content{
+    margin: 17px;
+
+}
+
+
+#links {
+    height: 43px;
+}
+
+
+#links div.background{
+    border-top: 1px solid #000000;
+    text-align: center;
+    padding: 5px;
+}

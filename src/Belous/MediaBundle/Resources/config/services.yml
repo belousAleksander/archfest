@@ -1,0 +1,19 @@
+parameters:
+#    belous_media.example.class: Belous\MediaBundle\Example
+
+services:
+#    belous_media.example:
+#        class: %belous_media.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
+
+    belous_media.images_loader:
+        class: Belous\MediaBundle\Services\ImagesLoader
+        arguments: [@service_container, @doctrine.orm.entity_manager]
+
+
+    doctrine.listener:
+        class: Archfest\Bundle\Listener\EntityListener
+        arguments:
+            - @service_container
+        tags:
+            - { name: doctrine.event_subscriber }

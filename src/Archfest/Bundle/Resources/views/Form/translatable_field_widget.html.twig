@@ -1,0 +1,26 @@
+{% block translatable_field_widget %}
+    {% set translatable_fields = get_entity_translatable_fields(form) %}
+    {#{{ dump(translatable_fields) }}#}
+
+    {% if translatable_fields is not empty %}
+        {% set languages       = get_languages() %}
+
+        <div class="translations-container">
+
+        {% for translatable_field_name, translatable_field in translatable_fields %}
+            {{ translatable_field.label }}
+            {% for language, field_key in translatable_field.fields %}
+                <div class="control-group">
+                {% if form[field_key] is defined %}
+                    <div class="translation-field control-group">
+                        <label class="control-label">{{ language }}</label>
+                        <div class="controls">{{ form_widget(form[field_key]) }}</div>
+                    </div>
+                {% endif %}
+                </div>
+            {% endfor %}
+        {% endfor %}
+
+        </div>
+    {% endif %}
+{% endblock translatable_field_widget %}

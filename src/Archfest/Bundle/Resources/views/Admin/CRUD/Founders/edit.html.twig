@@ -1,0 +1,119 @@
+{% extends 'ArchfestBundle::Admin\\CRUD\\base_edit.html.twig' %}
+{% block javascripts %}
+	{{parent()}}
+
+	<script src="{{ asset('bundles/archfest/js/admin/controllers/baseController.js') }}" type="text/javascript"></script>
+	<script src="{{ asset('bundles/archfest/js/admin/controllers/founders/foundersController.js') }}" type="text/javascript"></script>
+	<script src="{{ asset('bundles/archfest/js/admin/directives/fileReader.js') }}" type="text/javascript"></script>
+	<script type="text/javascript">
+		var objectImages = [];
+		var saveConstructionImg = '{{ admin.generateUrl('saveImg', {'id': admin.id(object), 'uniqid': admin.uniqid, 'subclass': app.request.get('subclass')}) | raw}}';
+		var removeImageAction = '{{ admin.generateUrl('removeImg', {'objectId': admin.id(object)}) | raw}}';
+
+		{%if object.id is not null%}
+		var newImgInfo = {{objectInfo.newImgInfo | raw}};
+		objectImages = {{objectInfo.images | raw}};
+		{%endif%}
+	</script>
+{% endblock %}
+
+{% block sonata_pre_formset %}
+
+<div ng-controller="baseController">
+	<div ng-controller="founders">
+		{% endblock %}
+		{% block form_fieldsets %}
+			{{form_row(form.status)}}
+			{{form_row(form.type)}}
+			{% if object.id%}
+				<div class="control-group">
+					<label class=" control-label">Фото учредителя</label>
+					<div class="controls">
+
+						<button onclick="return false;" class="btn edit_link btn-small"
+								data-toggle="modal"
+								data-target="#imgInfo"
+								title="Добавления изображения проэкта"
+								ng-click="addNewImg()">
+							<i class="icon-plus"></i>
+							Добавить
+						</button>
+						<ul>
+							<li>
+
+							</li>
+						</ul>
+						<div class="control-group" ng-repeat="img in model.images">
+							<img width="200" ng-src="{[img.src]}" class="img-polaroid" align="left">
+							<div ng-show="img.main">Логотип</div>
+							<div>
+								Описание:
+								<ul class="unstyled">
+									<li ng-repeat="currentElement in  img.alt">
+										{[currentElement.language]}: {[currentElement.value]}
+									</li>
+								</ul>
+
+							</div>
+							<button onclick="return false;" class="btn edit_link btn-small"
+									data-toggle="modal"
+									data-target="#imgInfo"
+									ng-click="getEditImg(img)"
+									title="Edit">
+								<i class="icon-edit"></i>
+								Редактировать
+							</button>
+
+							<button class="btn edit_link btn-small" onclick="return false;" ng-click="removeImg ($index, {{ object.id }})">
+								<i class="icon-remove"></i>
+								Удалить
+							</button>
+						</div>
+
+					</div>
+				</div>
+			{% endif%}
+
+			{{form_row(form.translations)}}
+			{{form_rest(form)}}
+
+		{% endblock %}
+
+		{% block sonata_post_formset %}
+		<modal modal-id="imgInfo">
+			<form enctype="multipart/form-data">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title">Информация об изображении</h4>
+				</div>
+
+				<div class="modal-body">
+					<p><input type="file" fileread="imgInfo" name="{{form.vars.id}}file[imgInfo]"/></p>
+					<div class="control-group">
+						<label>Описания картинки: </label>
+						<div class="controls">
+							<ul>
+								<li ng-repeat="currentElement in  imgInfo.alt">
+									{[currentElement.language]}: <input type="text" ng-model="currentElement.value" name="{{form.vars.id}}file[imgInfo][alt][{[currentElement.language]}]"/>
+								</li>
+							</ul>
+							<input type="checkbox" name="{{form.vars.id}}file[imgInfo][main]" ng-model="imgInfo.main">
+							<input type="hidden"
+								   name="{{form.vars.id}}file[imgInfo][id]"
+								   value="{[imgInfo.id]}">
+							<input type="hidden" id="{{ admin.uniqid }}__token"
+								   name="{{ admin.uniqid }}[_token]"
+								   value="{{ form._token.vars.value }}">
+						</div>
+					</div>
+				</div>
+
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+					<button type="button" class="btn btn-default"  ng-click="saveImg($event, imgInfo.index)">Сохранить</button>
+				</div>
+			</form>
+		</modal>
+	</div>
+</div>
+{% endblock %}

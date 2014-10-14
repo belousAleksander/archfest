@@ -1,0 +1,6 @@
+sonata_user:
+    admin:                  # Admin Classes
+        user:
+            class:          Application\Sonata\UserBundle\Admin\Entity\UserAdmin
+            controller:     SonataAdminBundle:CRUD
+            translation:    SonataUserBundle

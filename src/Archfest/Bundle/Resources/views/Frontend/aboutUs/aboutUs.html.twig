@@ -1,0 +1,84 @@
+{% extends "ArchfestBundle:Frontend:base.html.twig" %}
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('bundles/archfest/css/frontend/bootstrap.min.css') }}"/>
+	{{ parent() }}
+	<link rel="stylesheet" href="{{ asset('bundles/archfest/css/frontend/aboutUs.css') }}"/>
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	<script type="text/javascript" src="{{ asset('bundles/archfest/js/frontend/Controllers/aboutUsController.js') }}"></script>
+{% endblock %}
+
+
+{% block bodyContent %}
+	<div id="page_logo" class="page-logo">
+		<img id="page_name" src="{{ asset('PAGE_NAME_ABOUT_US'|trans({}, 'base')) }}"/></div>
+	<div class="content-body" ng-controller="aboutUsController">
+		<div class="Architects">
+			<div class="founders">
+				{% set typeFounders = typesOfFounders[0] %}
+				<h2>{{ typeFounders.name(app.request.get('_locale')) | raw }}</h2>
+				{% if typeFounders.enabled %}
+					{% for founder in typeFounders.founders %}
+						{% set img = founder.img.first %}
+						<div class="pointer" ng-click="showBiography($event, '{{ path('archfest_biography', {'id': founder.id}) }}')">
+							<img src="{{ asset(img.src) }}"  height="270" width="201" alt="{{ img.alt(app.request.get('_locale')) }}">
+							<div>
+								{{ founder.name(app.request.get('_locale')) | raw }}
+							</div>
+						</div>
+					{% endfor %}
+				{% endif %}
+			</div>
+			<div>
+				<div class="chief_Architect">
+					{% set chiefArchitect = typesOfFounders[1] %}
+					{% if chiefArchitect.enabled %}
+					<h2>{{ chiefArchitect.name(app.request.get('_locale')) | raw }}</h2>
+					{% for founder in chiefArchitect.founders %}
+						{% set img = founder.img.first %}
+						<div class="pointer" ng-click="showBiography($event, '{{ path('archfest_biography', {'id': founder.id}) }}')">
+							<img src="{{ asset(img.src) }}"  height="270" width="201" alt="{{ img.alt(app.request.get('_locale')) }}">
+							{{ founder.name(app.request.get('_locale')) | raw }}
+						</div>
+					{% endfor %}
+					{% endif %}
+				</div>
+			<div class="fest">
+				{{ page.shortInfo(app.request.get('_locale')) | raw}}
+			</div>
+		</div>
+		<div class="about-text">
+
+			<div class="second">
+				{{ page.content(app.request.get('_locale')) | raw}}
+			</div>
+		</div>
+		<div class="team">
+			{% set team = typesOfFounders[2] %}
+			{% if team.enabled %}
+				<h2>{{ team.name(app.request.get('_locale')) | raw }}</h2>
+				{% for founder in team.founders %}
+					{% set img = founder.img.first %}
+					<ul>
+						<li class="pointer" ng-click="showBiography($event, '{{ path('archfest_biography', {'id': founder.id}) }}')">
+							<img src="{{ asset(img.src) }}"  height="270" width="201" alt="{{ img.alt(app.request.get('_locale')) }}">
+						</li>
+					</ul>
+				{% endfor %}
+			{% endif %}
+		</div>
+		<div class="finally">
+			{{ page.footer | raw}}
+		</div>
+
+	</div>
+	<!-- modal content -->
+
+	<div class="modal hide fade " id="biography" tabindex="-1" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content"></div>
+		</div>
+	</div>
+{% endblock %}

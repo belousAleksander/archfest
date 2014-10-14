@@ -1,0 +1,124 @@
+parameters:
+#    archfest.example.class: Archfest\Bundle\Example
+
+services:
+
+    form.type.translatable:
+        class: Archfest\Bundle\Form\TranslatedFieldType
+        arguments: [ @service_container ]
+        tags:
+         - { name: form.type, alias: translatable_field }
+
+    sonata.admin.mainPage:
+        class: Archfest\Bundle\Admin\MainPageAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Главная страница", label: "Текст страницы" }
+        arguments:
+            - ~
+            - Archfest\Bundle\Entity\MainPage
+            - ArchfestBundle:Admin\MainPage
+
+    translation.translations_helper:
+        class: Archfest\Bundle\Helper\TranslationsHelper
+
+    translation.translations_extension:
+        class: Archfest\Bundle\Extension\TranslationExtension
+        arguments: [@translation.translations_helper]
+        tags:
+          - { name: twig.extension }
+
+
+
+    sonata.admin.catalog:
+        class: Archfest\Bundle\Admin\ProjectsAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Каталог", label: "Проекты" }
+        arguments:
+            - ~
+            - Archfest\Bundle\Entity\Projects
+            - ArchfestBundle:Admin\Projects
+
+    sonata.admin.typeOfProjects:
+        class: Archfest\Bundle\Admin\TypesOfProjectsAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Каталог", label: "Типы проектов" }
+        arguments:
+            - ~
+            - Archfest\Bundle\Entity\TypesOfProjects
+            - ArchfestBundle:Admin\TypesOfProjects
+
+    sonata.admin.сonstruction:
+        class: Archfest\Bundle\Admin\ConstructionAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Постройки", label: "Постройки" }
+        arguments:
+            - ~
+            - Archfest\Bundle\Entity\Construction
+            - ArchfestBundle:Admin\Construction
+
+    sonata.admin.сonstruction.page:
+        class: Archfest\Bundle\Admin\ConstructionPageAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Постройки", label: "Описание страницы" }
+        arguments:
+            - ~
+            - Archfest\Bundle\Entity\ConstructionPage
+            - ArchfestBundle:Admin\ConstructionPage
+
+    sonata.admin.catalog.page:
+        class: Archfest\Bundle\Admin\CatalogPageAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Каталог", label: "Описание страницы" }
+        arguments:
+            - ~
+            - Archfest\Bundle\Entity\CatalogPage
+            - ArchfestBundle:Admin\CatalogPage
+
+    sonata.admin.typeOfFounders:
+        class: Archfest\Bundle\Admin\TypesOfFoundersAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "О нас", label: "Типы учредителей" }
+        arguments:
+            - ~
+            - Archfest\Bundle\Entity\TypesOfFounders
+            - ArchfestBundle:Admin\TypesOfFounders
+
+    sonata.admin.founders:
+            class: Archfest\Bundle\Admin\FoundersAdmin
+            tags:
+                - { name: sonata.admin, manager_type: orm, group: "О нас", label: "Учредители" }
+            arguments:
+                - ~
+                - Archfest\Bundle\Entity\Founders
+                - ArchfestBundle:Admin\Founders
+
+
+
+    sonata.admin.aboutUs:
+            class: Archfest\Bundle\Admin\AboutUsAdmin
+            tags:
+                - { name: sonata.admin, manager_type: orm, group: "О нас", label: "Описание" }
+            arguments:
+                - ~
+                - Archfest\Bundle\Entity\AboutUs
+                - ArchfestBundle:Admin\AboutUs
+
+    sonata.admin.сontactUs:
+            class: Archfest\Bundle\Admin\ContactUsAdmin
+            tags:
+                - { name: sonata.admin, manager_type: orm, group: "Контакты", label: "Контакты" }
+            arguments:
+                - ~
+                - Archfest\Bundle\Entity\ContactUs
+                - ArchfestBundle:Admin\Base
+
+    sonata.admin.сontactUsPage:
+            class: Archfest\Bundle\Admin\ContactUsPageAdmin
+            tags:
+                - { name: sonata.admin, manager_type: orm, group: "Контакты", label: "Описание страницы" }
+            arguments:
+                - ~
+                - Archfest\Bundle\Entity\ContactUsPage
+                - ArchfestBundle:Admin\Base
+
+

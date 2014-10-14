@@ -1,0 +1,9 @@
+<div class="modal-header">
+	<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+	<h4 class="modal-title">{{ object.name(app.request.locale) }}</h4>
+</div>
+<div class="modal-body">
+	{% set img = object.img.first %}
+	<img src="{{ asset(img.src) }}" height="270" width="201" alt="{{ img.alt(app.request.get('_locale')) }}">
+	{{ object.content(app.request.locale) | raw }}
+</div>

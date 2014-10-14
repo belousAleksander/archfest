@@ -1,0 +1,14 @@
+parameters:
+#    belous_flash.example.class: Belous\FlashBundle\Example
+
+services:
+#    belous_flash.example:
+#        class: %belous_flash.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
+
+    doctrine.flash.entity.listener:
+        class: Belous\FlashBundle\Listener\EntityListener
+        arguments:
+            - @service_container
+        tags:
+            - { name: doctrine.event_subscriber }
